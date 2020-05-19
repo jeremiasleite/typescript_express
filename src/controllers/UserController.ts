@@ -1,16 +1,15 @@
 import { Request, Response} from 'express'
 
-//import User from '../schemas/User'
+import UserModel from '../schemas/User'
+import User from '../interfaces/UserInterface'
 
 class UserController {
-    public async index(req: Request, res: Response): Promise<Response>{
-        return res.send('Hello world')
+       
+    public async find(): Promise<User[]>{        
+        return await UserModel.find()        
     }
+
     
-    /*public async find(req: Request, res: Response): Promise<Response>{
-        const users = await User.find()
-        return res.json(users)
-    }*/
 }
 
 export default new UserController()
